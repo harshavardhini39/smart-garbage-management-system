@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='result_style.css') }}">
+    <title>Waste Classifier - Result</title>
+</head>
+<body>
+    <div class="main-container">
+        <h2>Result</h2>
+        <p class="result-label">Result Label: {{ result_label }}</p>
+        <img src="{{ image_path }}" alt="Uploaded Image" class="uploaded-image" width="100" height="100">
+        
+        {% if result_label == 'Organic' %}
+            <div class="waste-info organic-info">
+                <h3>What to do with Organic Waste?</h3>
+                <div class="info-content">
+                    <p>Organic waste includes Papers,food scraps, yard waste, and other biodegradable materials. To manage organic waste responsibly:</p>
+                    <ul>
+                        <p>Compost kitchen scraps like fruit and vegetable peels.</p>
+                        <p>Use a compost bin for yard waste, leaves, and grass clippings.</p>
+                        <p>Avoid putting organic waste in regular trash to reduce landfill waste.</p>
+                    </ul>
+                </div>
+                <img src="{{ url_for('static', filename='organic.png') }}" alt="Organic Waste" class="waste-image" width="200" height="300">
+            </div>
+        {% else %}
+            <div class="waste-info recyclable-info">
+                <h3>What to do with Recyclable Waste?</h3>
+                <div class="info-content">
+                    <p>Recyclable waste includes items like plastics, glass, paper, and metal. To recycle effectively:</p>
+                    <ul>
+                        <p>Separate recyclables from regular trash.</p>
+                        <p>Check local recycling guidelines for specific materials that can be recycled.</p>
+                        <p>Reduce waste by choosing products with minimal packaging.</p>
+                    </ul>
+                </div>
+                <img src="{{ url_for('static', filename='recycle.png') }}" alt="Recycle Waste" class="waste-image" width="200" height="300">
+            </div>
+        {% endif %}
+        
+        <a href="/" class="back-button">Go back to upload another image</a>
+    </div>
+</body>
+</html>

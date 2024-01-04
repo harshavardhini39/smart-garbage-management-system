@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Waste Classifier</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>Waste Classifier</h1>
+            <img src="{{ url_for('static', filename='wastuu.png') }}" alt="Organic Waste" >
+        </div>
+
+        <div class="intro-section">
+            <p>Welcome to Waste Classifier, an interactive tool designed to help you sort your waste efficiently.</p>
+        </div>
+
+        <div class="how-it-works-section">
+            <h2>How it Works</h2>
+            <p>Simply upload an image of waste, and our classifier will determine whether it's organic or recyclable.</p>
+        </div>
+
+        <div class="why-sort-waste-section">
+            <h2>Why Sort Waste?</h2>
+            <p>Proper waste sorting is crucial for environmental sustainability. It ensures that materials are recycled or disposed of correctly, reducing the impact on our planet.</p>
+        </div>
+
+        <div class="what-to-do-section">
+            <h2>What to Do with Organic Waste?</h2>
+            <p>Organic waste, such as food scraps and yard waste, can be composted. Composting turns this waste into nutrient-rich soil for plants.</p>
+        </div>
+
+        <div class="what-to-do-section">
+            <h2>What to Do with Recyclable Waste?</h2>
+            <p>Recyclable waste, including paper, plastic, and glass, can be recycled. Recycling reduces the need for raw materials and minimizes pollution.</p>
+        </div>
+
+        <div class="cta-section">
+            <p>Start contributing to a greener environment by using the Waste Classifier today!</p>
+        </div>
+
+        <div class="upload-section">
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <button type="submit">Classify Waste</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="image-container">
+       <img src="{{ url_for('static', filename='organic.png') }}" alt="Organic Waste" width="200" height="300">
+        <img src="{{ url_for('static', filename='recycle.png') }}" alt="Recyclable Waste">
+        <img src="{{ url_for('static', filename='w2.png') }}" alt="Organic Waste">
+    </div>
+</body>
+
+</html>
